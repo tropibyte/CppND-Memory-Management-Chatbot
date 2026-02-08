@@ -20,7 +20,7 @@ ChatBot::ChatBot()
 // constructor WITH memory allocation
 ChatBot::ChatBot(std::string filename)
 {
-    std::cout << "ChatBot Constructor" << std::endl;
+    std::cout << ">>> Rule of Five Component: Constructor <<<" << std::endl;
     
     // invalidate data handles
     _chatLogic = nullptr;
@@ -32,7 +32,7 @@ ChatBot::ChatBot(std::string filename)
 
 ChatBot::~ChatBot()
 {
-    std::cout << "ChatBot Destructor" << std::endl;
+    std::cout << ">>> Rule of Five Component: Destructor <<<" << std::endl;
 
     // deallocate heap memory
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
@@ -48,7 +48,7 @@ ChatBot::~ChatBot()
 // copy constructor
 ChatBot::ChatBot(const ChatBot &source)
 {
-    std::cout << "ChatBot Copy Constructor" << std::endl;
+    std::cout << ">>> Rule of Five Component: Copy Constructor <<<" << std::endl;
 
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
@@ -63,7 +63,7 @@ ChatBot::ChatBot(const ChatBot &source)
 // copy assignment operator
 ChatBot &ChatBot::operator=(const ChatBot &source)
 {
-    std::cout << "ChatBot Copy Assignment Operator" << std::endl;
+    std::cout << ">>> Rule of Five Component: Copy Assignment Operator <<<" << std::endl;
 
     if (this == &source)
         return *this;
@@ -86,7 +86,7 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
 // move constructor
 ChatBot::ChatBot(ChatBot &&source) noexcept
 {
-    std::cout << "ChatBot Move Constructor" << std::endl;
+    std::cout << ">>> Rule of Five Component: Move Constructor <<<" << std::endl;
 
     _image = source._image;
     _chatLogic = source._chatLogic;
@@ -102,7 +102,7 @@ ChatBot::ChatBot(ChatBot &&source) noexcept
 // move assignment operator
 ChatBot &ChatBot::operator=(ChatBot &&source) noexcept
 {
-    std::cout << "ChatBot Move Assignment Operator" << std::endl;
+    std::cout << ">>> Rule of Five Component: Move Assignment Operator <<<" << std::endl;
 
     if (this == &source)
         return *this;
