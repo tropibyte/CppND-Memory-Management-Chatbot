@@ -7,6 +7,7 @@
 #include "graphnode.h"
 #include "graphedge.h"
 #include "chatbot.h"
+#include "logger.h"
 
 // constructor WITHOUT memory allocation
 ChatBot::ChatBot()
@@ -20,8 +21,8 @@ ChatBot::ChatBot()
 // constructor WITH memory allocation
 ChatBot::ChatBot(std::string filename)
 {
-    std::cout << ">>> Rule of Five Component: Constructor <<<" << std::endl;
-    
+    Logger::getInstance().log(">>> Rule of Five Component: Constructor <<<");
+
     // invalidate data handles
     _chatLogic = nullptr;
     _rootNode = nullptr;
@@ -32,7 +33,7 @@ ChatBot::ChatBot(std::string filename)
 
 ChatBot::~ChatBot()
 {
-    std::cout << ">>> Rule of Five Component: Destructor <<<" << std::endl;
+    Logger::getInstance().log(">>> Rule of Five Component: Destructor <<<");
 
     // deallocate heap memory
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
@@ -48,7 +49,7 @@ ChatBot::~ChatBot()
 // copy constructor
 ChatBot::ChatBot(const ChatBot &source)
 {
-    std::cout << ">>> Rule of Five Component: Copy Constructor <<<" << std::endl;
+    Logger::getInstance().log(">>> Rule of Five Component: Copy Constructor <<<");
 
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
@@ -63,7 +64,7 @@ ChatBot::ChatBot(const ChatBot &source)
 // copy assignment operator
 ChatBot &ChatBot::operator=(const ChatBot &source)
 {
-    std::cout << ">>> Rule of Five Component: Copy Assignment Operator <<<" << std::endl;
+    Logger::getInstance().log(">>> Rule of Five Component: Copy Assignment Operator <<<");
 
     if (this == &source)
         return *this;
@@ -86,7 +87,7 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
 // move constructor
 ChatBot::ChatBot(ChatBot &&source) noexcept
 {
-    std::cout << ">>> Rule of Five Component: Move Constructor <<<" << std::endl;
+    Logger::getInstance().log(">>> Rule of Five Component: Move Constructor <<<");
 
     _image = source._image;
     _chatLogic = source._chatLogic;
@@ -102,7 +103,7 @@ ChatBot::ChatBot(ChatBot &&source) noexcept
 // move assignment operator
 ChatBot &ChatBot::operator=(ChatBot &&source) noexcept
 {
-    std::cout << ">>> Rule of Five Component: Move Assignment Operator <<<" << std::endl;
+    Logger::getInstance().log(">>> Rule of Five Component: Move Assignment Operator <<<");
 
     if (this == &source)
         return *this;
