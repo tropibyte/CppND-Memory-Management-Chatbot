@@ -4,11 +4,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 project(Membot)
 
-find_package(wxWidgets REQUIRED COMPONENTS core base)
-include(${wxWidgets_USE_FILE})
+find_package(wxWidgets CONFIG REQUIRED)
 
 file(GLOB project_SRCS src/*.cpp)
 
-add_executable(membot ${project_SRCS})
-target_link_libraries(membot ${wxWidgets_LIBRARIES})
-target_include_directories(membot PRIVATE ${wxWidgets_INCLUDE_DIRS})
+add_executable(membot WIN32 ${project_SRCS})
+target_link_libraries(membot PRIVATE wx::core wx::base)

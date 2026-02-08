@@ -1,1 +1,7 @@
 .github/**
+build/
+vcpkg_installed/
+.vs/
+.claude/
+out/
+nul
